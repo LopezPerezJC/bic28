@@ -2,31 +2,6 @@ import { useParams } from "react-router-dom";
 import { noticias } from "../data/Noticias.json";
 import { Link } from "react-router-dom";
 
-type Parrafo = {
-  type: "parrafo";
-  content: string;
-};
-
-type Imagen = {
-  type: "imagen";
-  url: string;
-  alt: string;
-};
-
-type Contenido = Parrafo | Imagen;
-
-type NoticiaProps = {
-  id_noticia: string,
-  title: string,
-  description: string,
-  link: string,
-  img_cover_link: string,
-  fecha_creado: Date,
-  fecha_modificado: Date,
-  autor: string,
-  contenido: Contenido[]
-}
-
 export const Noticia = () => {
   const { id } = useParams<{ id: string }>();
   const noticia = noticias?.find((item) => item.id === id);
